@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b5bd6">
+    <title>Focus Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-decoration" aria-hidden="true"></div>
+    <main class="main-wrapper">
+        <section class="card" aria-labelledby="pageTitle">
+            <header>
+                <p class="eyebrow">Rencanakan harimu</p>
+                <h1 id="pageTitle"><span aria-hidden="true">✦</span> Focus Dashboard</h1>
+                <p class="subtitle">Satu agenda kecil untuk langkah yang lebih terarah.</p>
+            </header>
+
+            <form id="agendaForm" class="input-container">
+                <div class="input-grid">
+                    <div class="input-wrapper">
+                        <label for="dateInput">Tanggal</label>
+                        <input type="date" id="dateInput" class="pro-input" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="startTimeInput">Waktu mulai</label>
+                        <input type="time" id="startTimeInput" class="pro-input" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="endTimeInput">Waktu selesai</label>
+                        <input type="time" id="endTimeInput" class="pro-input" required>
+                    </div>
+                </div>
+                <div class="input-wrapper full-width">
+                    <label for="activityInput">Aktivitas utama</label>
+                    <input type="text" id="activityInput" class="pro-input" placeholder="Contoh: Selesaikan proposal proyek" maxlength="120" autocomplete="off" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary"><span class="btn-text">Simpan agenda</span><span aria-hidden="true">+</span></button>
+                    <button type="button" id="cancelEditBtn" class="btn-secondary" hidden>Batal edit</button>
+                </div>
+            </form>
+
+            <div class="divider"></div>
+            <section class="list-section" aria-labelledby="timelineTitle">
+                <div class="list-header">
+                    <div><p class="section-kicker">Agenda tersimpan</p><h2 id="timelineTitle">Timeline Anda</h2></div>
+                    <span id="agendaCount" class="badge" aria-live="polite">0 agenda</span>
+                </div>
+                <ul id="activityList" class="custom-scroll" aria-label="Daftar agenda"></ul>
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon" aria-hidden="true">☕</div>
+                    <p>Belum ada agenda.<br>Mulai dari satu hal penting hari ini.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+    <div id="notification" class="notification" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+</html>
